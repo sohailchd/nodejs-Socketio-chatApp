@@ -1,5 +1,5 @@
 var mongo = require('mongodb').MongoClient ,
-    client = require('socket.io').listen(8080).sockets;
+    client = require('socket.io').listen(process.env.PORT || 8080).sockets;
 
 
 mongo.connect('mongodb://localhost/chat',function(err,db){
