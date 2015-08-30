@@ -2,7 +2,7 @@ var mongo = require('mongodb').MongoClient ,
     client = require('socket.io').listen(process.env.PORT || 8080).sockets;
 
 
-mongo.connect('mongodb://localhost/chat',function(err,db){
+mongo.connect('mongodb://bash_edu:1rightman@ds041643.mongolab.com:41643/chat',function(err,db){
      if(err) throw err;
     
     
