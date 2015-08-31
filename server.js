@@ -1,5 +1,7 @@
+var port = process.env.PORT || 8080;
+
 var mongo = require('mongodb').MongoClient ,
-    client = require('socket.io').listen(port).sockets,
+    client = require('socket.io').listen((port+1)).sockets,
     express = require('express'),
     app = express(),
     router = express.Router(),
@@ -8,7 +10,7 @@ var mongo = require('mongodb').MongoClient ,
 
 
 
-var port = process.env.PORT || 8080;
+
 
 // settings
 app.set('view engine','ejs');
@@ -79,7 +81,7 @@ app.get('/',function(req,res){
 
 
 // listen for connection
-app.listen(port+1, function(){
+app.listen(port, function(){
     console.log(port+1);
 });
 
