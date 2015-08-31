@@ -9,7 +9,8 @@
     "express" : "*",
     "body-parser" : "*",
     "path" : "*",
-    "ejs" : "*"
+    "ejs" : "*",
+    "express-logger" : "*"
   },
   "devDependencies": {},
   "scripts": {

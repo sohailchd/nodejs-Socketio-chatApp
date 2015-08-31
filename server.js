@@ -1,10 +1,11 @@
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080,
+    portB = port + 1 ;
 
 
 var mongo = require('mongodb').MongoClient ,
     express = require('express'),
     app = express(),
-    client = require('socket.io').listen(port+1).sockets,
+    client = require('socket.io').listen(app.listen(port)).sockets,
     router = express.Router(),
     path   = require('path');
 
@@ -78,13 +79,13 @@ mongo.connect('mongodb://bash_edu:1rightman@ds041643.mongolab.com:41643/chat',fu
 
 app.get('/',function(req,res){
     res.render('index',{
-        port : (port+1).toString()
+        port : (portB).toString()
     });
 });
 
 
 // listen for connection
-app.listen(port, function(){
-    console.log(port);
+app.listen(portB, function(){
+    console.log(portB);
 });
 
