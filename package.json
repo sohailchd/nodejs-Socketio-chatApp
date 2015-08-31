@@ -5,7 +5,11 @@
   "main": "server.js",
   "dependencies": {
     "mongodb": "^2.0.42",
-    "socket.io": "^1.3.6"
+    "socket.io": "^1.3.6",
+    "express" : "*",
+    "body-parser" : "*",
+    "path" : "*",
+    "ejs" : "*"
   },
   "devDependencies": {},
   "scripts": {

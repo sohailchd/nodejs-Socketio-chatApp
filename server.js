@@ -1,5 +1,22 @@
 var mongo = require('mongodb').MongoClient ,
-    client = require('socket.io').listen(process.env.PORT || 8080).sockets;
+    client = require('socket.io').listen(process.env.PORT || 8080).sockets,
+    express = require('express'),
+    app = express(),
+    router = express.Router(),
+    path   = require('path');
+
+
+
+
+// settings
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
+
+
+
+//middle ware
+app.use(express.static(path.join(__dirname,'css')));
+
 
 
 mongo.connect('mongodb://bash_edu:1rightman@ds041643.mongolab.com:41643/chat',function(err,db){
@@ -49,3 +66,18 @@ mongo.connect('mongodb://bash_edu:1rightman@ds041643.mongolab.com:41643/chat',fu
      });
     
 });
+
+
+//-----------------------------------------------------------------------
+
+app.get('/',function(req,res){
+    res.render('index',{
+    });
+});
+
+
+// listen for connection
+app.listen(process.env.PORT || 8081 , function(){
+    
+});
+
