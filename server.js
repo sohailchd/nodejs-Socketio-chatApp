@@ -21,7 +21,7 @@ app.set('views',path.join(__dirname,'views'));
 
 
 //middle ware
-app.use(express.static(path.join(__dirname,'css')));
+app.use(express.static(path.join(__dirname,'bower_components')));
 
 
 
