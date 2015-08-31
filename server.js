@@ -1,5 +1,5 @@
 var mongo = require('mongodb').MongoClient ,
-    client = require('socket.io').listen(process.env.PORT || 8080).sockets,
+    client = require('socket.io').listen(port).sockets,
     express = require('express'),
     app = express(),
     router = express.Router(),
@@ -7,6 +7,8 @@ var mongo = require('mongodb').MongoClient ,
 
 
 
+
+var port = process.env.PORT || 8080;
 
 // settings
 app.set('view engine','ejs');
@@ -34,12 +36,12 @@ mongo.connect('mongodb://bash_edu:1rightman@ds041643.mongolab.com:41643/chat',fu
          col.find().limit(100).sort({_id : 1}).toArray(function(err,res){
              if(err) throw err;
              
-             socket.emit('output',res);
+             socket.emit('output', res);
          });
          
          
          //wait for input
-         socket.on('input',function(data){
+         socket.on('input', function(data){
              var name = data.name,
                  message = data.message ,
                  whiteSpacePattern = /^\s*$/;
@@ -77,7 +79,7 @@ app.get('/',function(req,res){
 
 
 // listen for connection
-app.listen(process.env.PORT || 8081 , function(){
-    
+app.listen(port+1, function(){
+    console.log(port+1);
 });
 
