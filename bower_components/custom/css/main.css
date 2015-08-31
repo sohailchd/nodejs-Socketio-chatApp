@@ -18,6 +18,7 @@ body , textarea , input{
 
 .chat-message{
 	margin-bottom: 10px;
+    background-color: antiquewhite;
 }
 .chat-messages
 {
